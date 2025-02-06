@@ -155,28 +155,9 @@ $('#ajouterCompteForm').on('submit', function(e) {
                     title: 'Compte ajouté',
                     text: response.message, // Utiliser le message de la réponse
                 });
-
-                // Ajouter dynamiquement le compte dans la liste
-                $('#comptesList').append(`
-                    <tr>
-                        <td>${response.data.compte.id}</td>
-                        <td>${response.data.compte.titulaire_compte}</td>
-                        <td>${response.data.compte.numero_compte}</td>
-                        <td>${response.data.compte.solde} €</td>
-                        <td>${response.data.compte.created_at}</td>
-                        <td>
-                            <div class="dropdown">
-                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                    <i class="dw dw-more"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-arrow-up"></i> Voir Dépôt</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-arrow-down"></i> Voir Retrait</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                `);
+                setTimeout(function() {
+                            window.location.reload();
+                        }, 1500);
             } else {
                 // Afficher l'erreur
                 Swal.fire({
